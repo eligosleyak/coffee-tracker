@@ -2,10 +2,17 @@ import { CoffeeExpenseTracker } from "@/components/coffee-expense-tracker"
 
 export default function Home() {
   return (
-    <main className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-center">Coffee Expense Tracker</h1>
-      <CoffeeExpenseTracker />
-    </main>
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50">
+      <div className="container mx-auto py-8 px-4">
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold text-amber-900 mb-2">Coffee Expense Tracker</h1>
+          <p className="text-amber-700 max-w-md mx-auto">
+            Keep track of your coffee adventures and manage your caffeine budget
+          </p>
+        </header>
+        <CoffeeExpenseTracker />
+      </div>
+    </div>
   )
 }
 
