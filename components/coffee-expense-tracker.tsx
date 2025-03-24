@@ -155,7 +155,9 @@ export function CoffeeExpenseTracker() {
       date: expense.date,
       notes: expense.notes,
     })
-    setDate(new Date(expense.date))
+    // Ensure we properly parse the date string to a Date object
+    const expenseDate = new Date(expense.date)
+    setDate(isNaN(expenseDate.getTime()) ? new Date() : expenseDate)
     setEditingId(expense.id)
     setIsDialogOpen(true)
   }
@@ -184,14 +186,15 @@ export function CoffeeExpenseTracker() {
   }
 
   const handleAddNew = () => {
+    const today = new Date()
     setFormData({
       type: "",
       location: "",
       price: "",
-      date: format(new Date(), "yyyy-MM-dd"),
+      date: format(today, "yyyy-MM-dd"),
       notes: "",
     })
-    setDate(new Date())
+    setDate(today)
     setEditingId(null)
     setIsDialogOpen(true)
   }
@@ -620,13 +623,13 @@ export function CoffeeExpenseTracker() {
                       {date ? format(date, "PPP") : <span>Pick a date</span>}
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0">
+                  <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
                       mode="single"
                       selected={date}
                       onSelect={handleDateSelect}
                       initialFocus
-                      className="border-amber-200"
+                      disabled={(date) => date > new Date()}
                     />
                   </PopoverContent>
                 </Popover>
