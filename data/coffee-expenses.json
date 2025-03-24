@@ -14,5 +14,13 @@
     "price": "100",
     "date": "2025-03-23",
     "notes": "Everyday Discounts"
+  },
+  {
+    "id": "896825eb-8679-4167-9051-a42f3e4795f2",
+    "type": "Chai Latte",
+    "location": "Genesis Cafe, Panipokhari, Kathmandu",
+    "price": "120",
+    "date": "2025-03-21",
+    "notes": "Everyday Discounts"
   }
 ]
