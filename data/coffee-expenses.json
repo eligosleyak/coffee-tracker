@@ -22,13 +22,5 @@
     "price": "120",
     "date": "2025-03-21",
     "notes": "Everyday Discounts"
-  },
-  {
-    "id": "5ca93f2b-d1c2-4d75-8c57-61c6858afb90",
-    "type": "Latte",
-    "location": "Genesis",
-    "price": "100",
-    "date": "2025-03-24",
-    "notes": "Shsh"
   }
 ]
