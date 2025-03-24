@@ -6,5 +6,13 @@
     "price": "100",
     "date": "2025-03-24",
     "notes": "Everyday Discounts"
+  },
+  {
+    "id": "26327df1-782f-429d-a19d-96cf8fe2453b",
+    "type": "Espresso",
+    "location": "London Cafe",
+    "price": "1000",
+    "date": "2025-03-24",
+    "notes": ""
   }
 ]
