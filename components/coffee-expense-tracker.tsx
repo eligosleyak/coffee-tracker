@@ -345,7 +345,7 @@ export function CoffeeExpenseTracker() {
   return (
     <div className="space-y-8">
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card className="bg-white shadow-md hover:shadow-lg transition-shadow">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg font-medium text-amber-800 flex items-center">
@@ -389,7 +389,7 @@ export function CoffeeExpenseTracker() {
       {/* Main Content Card */}
       <Card className="bg-white shadow-lg border-amber-100">
         <CardHeader className="border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <CardTitle className="text-2xl text-amber-900 flex items-center">
                 <Coffee className="mr-2 h-6 w-6 text-amber-700" />
@@ -397,7 +397,7 @@ export function CoffeeExpenseTracker() {
               </CardTitle>
               <CardDescription className="text-amber-700">Track your coffee purchases and expenses</CardDescription>
             </div>
-            <div className="flex flex-wrap gap-2 mt-4 md:mt-0">
+            <div className="flex flex-wrap gap-2">
               <Button onClick={handleAddNew} disabled={isSaving} className="bg-amber-600 hover:bg-amber-700 text-white">
                 <Plus className="mr-2 h-4 w-4" />
                 Add New Expense
@@ -431,7 +431,7 @@ export function CoffeeExpenseTracker() {
           </div>
         </CardHeader>
 
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <Tabs defaultValue="all" className="mb-6" onValueChange={setActiveTab}>
             <TabsList className="bg-amber-100 text-amber-900">
               <TabsTrigger value="all" className="data-[state=active]:bg-white">
@@ -473,29 +473,35 @@ export function CoffeeExpenseTracker() {
                 <TableBody>
                   {sortedExpenses.map((expense) => (
                     <TableRow key={expense.id} className="hover:bg-amber-50 transition-colors">
-                      <TableCell className="font-medium flex items-center">
-                        <Coffee className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
-                        {expense.type}
+                      <TableCell>
+                        <div className="flex items-center">
+                          <Coffee className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
+                          <span>{expense.type}</span>
+                        </div>
                       </TableCell>
-                      <TableCell className="flex items-center">
-                        <MapPin className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
-                        {expense.location}
+                      <TableCell>
+                        <div className="flex items-center">
+                          <MapPin className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
+                          <span>{expense.location}</span>
+                        </div>
                       </TableCell>
                       <TableCell>
                         <Badge variant="outline" className="bg-amber-50 text-amber-800 border-amber-200">
                           NPR {Number.parseFloat(expense.price).toLocaleString()}
                         </Badge>
                       </TableCell>
-                      <TableCell className="flex items-center">
-                        <Clock className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
-                        {expense.date}
+                      <TableCell>
+                        <div className="flex items-center">
+                          <Clock className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0" />
+                          <span>{expense.date}</span>
+                        </div>
                       </TableCell>
-                      <TableCell className="max-w-[200px] truncate flex items-start">
+                      <TableCell className="max-w-[200px] truncate">
                         {expense.notes && (
-                          <>
+                          <div className="flex items-start">
                             <FileText className="h-4 w-4 text-amber-600 mr-2 flex-shrink-0 mt-1" />
-                            {expense.notes}
-                          </>
+                            <span className="truncate">{expense.notes}</span>
+                          </div>
                         )}
                       </TableCell>
                       <TableCell>
@@ -528,7 +534,7 @@ export function CoffeeExpenseTracker() {
           )}
         </CardContent>
 
-        <CardFooter className="bg-gradient-to-r from-amber-50 to-orange-50 border-t border-amber-100 px-6 py-4">
+        <CardFooter className="bg-gradient-to-r from-amber-50 to-orange-50 border-t border-amber-100 px-4 sm:px-6 py-4">
           <p className="text-amber-700 text-sm">
             Showing {sortedExpenses.length} of {expenses.length} coffee expenses
           </p>
