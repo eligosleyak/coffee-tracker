@@ -22,5 +22,13 @@
     "price": "120",
     "date": "2025-03-21",
     "notes": "Everyday Discounts"
+  },
+  {
+    "id": "b68e76d3-c65f-4db0-99b0-26b6fc67560c",
+    "type": "Iced Latte",
+    "location": "Craft Coffee Box Nepal Pvt. Ltd",
+    "price": "220",
+    "date": "2025-03-27",
+    "notes": ""
   }
 ]
